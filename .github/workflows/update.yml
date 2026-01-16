@@ -3,7 +3,7 @@ name: Update Automega feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "15 * * * *"  # každou hodinu v :15 (UTC)
 
 permissions:
   contents: write
