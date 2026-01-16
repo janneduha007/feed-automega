@@ -3,7 +3,7 @@ name: Update Automega feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"  # každou hodinu v :15 (UTC)
+    - cron: "15 * * * *"
 
 permissions:
   contents: write
@@ -29,55 +29,40 @@ jobs:
           }
 
           $outFile = "tmp/automega.xml"
-
           $ok = $false
+
           for ($i = 1; $i -le 3; $i++) {
             try {
               Write-Host "Download attempt $i..."
               Invoke-WebRequest -Uri $url -Headers $headers -OutFile $outFile -TimeoutSec 300
-
-              if ((Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) {
-                $ok = $true
-                break
-              }
+              if ((Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) { $ok = $true; break }
             } catch {
               Write-Host "Attempt $i failed: $($_.Exception.Message)"
               Start-Sleep -Seconds 10
             }
           }
 
-          if (-not $ok) {
-            throw "Download failed after 3 attempts."
-          }
+          if (-not $ok) { throw "Download failed after 3 attempts." }
 
           Write-Host ("Downloaded {0} bytes" -f (Get-Item $outFile).Length)
           Get-Content $outFile -TotalCount 5 | ForEach-Object { Write-Host $_ }
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
 
       - name: Update output + snapshot
         shell: powershell
         env:
           AUTOMEGA_FEED_FILE: tmp/automega.xml
         run: |
-          python tools/update_automega_feed.py
+          py -3 tools/update_automega_feed.py
 
       - name: Commit changes (if any)
         shell: powershell
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add feeds/automega.xml data/automega_snapshot.json
 
           $diff = git diff --cached --name-only
-          if ([string]::IsNullOrWhiteSpace($diff)) {
-            Write-Host "No changes to commit."
-            exit 0
-          }
+          if ([string]::IsNullOrWhiteSpace($diff)) { Write-Host "No changes to commit."; exit 0 }
 
           git commit -m "Update Automega feed"
           git push
