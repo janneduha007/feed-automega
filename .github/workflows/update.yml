@@ -18,16 +18,28 @@ jobs:
       - name: Fetch supplier feed
         run: |
           mkdir -p tmp
-          # zkusíme několikrát (feed je velký/pomalý)
+
+          # víc "browser-like" hlaviček + cookies
           for i in 1 2 3; do
-            curl -L --fail --retry 3 --retry-delay 5 \
-              -A "Mozilla/5.0" \
+            curl -L --fail \
+              --retry 3 --retry-delay 5 \
+              --connect-timeout 20 --max-time 300 \
+              -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" \
+              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+              -H "Accept-Language: cs-CZ,cs;q=0.9,en;q=0.8" \
+              -H "Referer: http://www.automega.cz/" \
+              -H "Connection: keep-alive" \
+              -c tmp/cookies.txt -b tmp/cookies.txt \
               "${{ secrets.AUTOMEGA_FEED_URL }}" \
               -o tmp/automega.xml && break
+            echo "Retry $i failed, sleeping..."
             sleep 10
           done
+
+          # kontrola, že něco přišlo
           test -s tmp/automega.xml
           echo "Downloaded $(wc -c < tmp/automega.xml) bytes"
+          head -n 5 tmp/automega.xml || true
 
       - name: Setup Python
         uses: actions/setup-python@v5
