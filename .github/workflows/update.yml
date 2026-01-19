@@ -49,7 +49,17 @@ jobs:
           if (-not $ok) { throw "Download failed after 3 attempts." }
 
           Write-Host ("Downloaded {0} bytes" -f (Get-Item $outFile).Length)
-          Get-Content $outFile -TotalCount 5 | ForEach-Object { Write-Host $_ }
+
+          # --- Validate that it's actually the feed (should contain <SHOP> near the start) ---
+          $head = Get-Content $outFile -TotalCount 30 -Raw
+          if ($head -notmatch "<SHOP") {
+            Write-Host "ERROR: Downloaded content does not look like the XML feed. First 500 chars:"
+            Write-Host ($head.Substring(0, [Math]::Min(500, $head.Length)))
+            throw "Downloaded file is not the expected XML feed (likely HTML/403 page)."
+          }
+
+          # Print a few lines for sanity
+          Get-Content $outFile -TotalCount 8 | ForEach-Object { Write-Host $_ }
 
       - name: Update output + snapshot
         shell: powershell
@@ -57,10 +67,9 @@ jobs:
           AUTOMEGA_FEED_FILE: tmp/automega.xml
         run: |
           if (-not (Get-Command py -ErrorAction SilentlyContinue)) {
-            throw "py launcher not found. Install Python launcher or ensure it is available for the service account."
+            throw "py launcher not found. Install Python launcher or ensure it is available."
           }
 
-          # Force the runtime we know is installed on this machine
           py -V:3.14 tools/update_automega_feed.py
 
       - name: Commit changes (if any)
