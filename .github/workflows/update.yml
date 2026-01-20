@@ -11,52 +11,67 @@ permissions:
 jobs:
   build:
     runs-on: self-hosted
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch supplier feed
+      - name: Fetch supplier feed (curl)
         shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path tmp | Out-Null
 
           $url = "${{ secrets.AUTOMEGA_FEED_URL }}"
-          $headers = @{
-            "User-Agent"      = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-            "Accept"          = "application/xml,text/xml,*/*;q=0.8"
-            "Accept-Language" = "cs-CZ,cs;q=0.9,en;q=0.8"
-            "Referer"         = "http://www.automega.cz/"
-          }
-
           $outFile = "tmp/automega.xml"
+
+          # Browser-like headers
+          $ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+
           $ok = $false
-
           for ($i = 1; $i -le 3; $i++) {
-            try {
-              Write-Host "Download attempt $i..."
-              Invoke-WebRequest -Uri $url -Headers $headers -OutFile $outFile -TimeoutSec 300
+            Write-Host "Download attempt $i..."
 
-              if ((Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) {
-                $ok = $true
-                break
-              }
-            } catch {
-              Write-Host "Attempt $i failed: $($_.Exception.Message)"
-              Start-Sleep -Seconds 10
+            # Use curl.exe (Windows built-in)
+            # -L follow redirects
+            # --fail makes non-2xx exit nonzero
+            # -sS silent but show errors
+            curl.exe -L --fail -sS `
+              -A "$ua" `
+              -H "Accept: application/xml,text/xml,*/*;q=0.8" `
+              -H "Accept-Language: cs-CZ,cs;q=0.9,en;q=0.8" `
+              -H "Referer: http://www.automega.cz/" `
+              "$url" -o "$outFile"
+
+            if ((Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) {
+              $ok = $true
+              break
             }
+
+            Start-Sleep -Seconds 10
           }
 
           if (-not $ok) { throw "Download failed after 3 attempts." }
 
-          Write-Host ("Downloaded {0} bytes" -f (Get-Item $outFile).Length)
+          $size = (Get-Item $outFile).Length
+          Write-Host ("Downloaded {0} bytes" -f $size)
 
-          # --- Validate that it's actually the feed (should contain <SHOP> near the start) ---
-          $head = (Get-Content $outFile -TotalCount 30) -join "`n"
+          # Validate: should contain <SHOP> near the start
+          $head = (Get-Content $outFile -TotalCount 60) -join "`n"
           if ($head -notmatch "<SHOP") {
             Write-Host "ERROR: Downloaded content does not look like the XML feed. First 500 chars:"
             $preview = $head.Substring(0, [Math]::Min(500, $head.Length))
             Write-Host $preview
-            throw "Downloaded file is not the expected XML feed (likely HTML/403 page)."
+
+            # Extra diagnostics: try HEAD request to see content-type/status
+            try {
+              $r = Invoke-WebRequest -Method Head -Uri $url -Headers @{ "User-Agent" = $ua } -TimeoutSec 60
+              Write-Host ("HEAD Status: {0}" -f $r.StatusCode)
+              Write-Host ("HEAD Content-Type: {0}" -f $r.Headers["Content-Type"])
+            } catch {
+              Write-Host ("HEAD request failed: {0}" -f $_.Exception.Message)
+            }
+
+            throw "Downloaded file is not the expected XML feed (likely HTML page / access denied)."
           }
 
           # Print a few lines for sanity
@@ -71,6 +86,7 @@ jobs:
             throw "py launcher not found. Install Python launcher or ensure it is available."
           }
 
+          # Use the runtime we know exists on this machine
           py -V:3.14 tools/update_automega_feed.py
 
       - name: Commit changes (if any)
