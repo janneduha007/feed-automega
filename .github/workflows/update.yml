@@ -3,7 +3,7 @@ name: Update Automega feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "15 * * * *"  # každou hodinu v :15 (UTC)
 
 permissions:
   contents: write
@@ -11,24 +11,28 @@ permissions:
 jobs:
   build:
     runs-on: self-hosted
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Ensure temp dir
         shell: powershell
+        working-directory: ${{ github.workspace }}
         run: |
           New-Item -ItemType Directory -Force -Path tmp | Out-Null
 
-      - name: Install Playwright (once per runner)
+      - name: Install Playwright (if needed)
         shell: powershell
+        working-directory: ${{ github.workspace }}
         run: |
           py -V:3.14 -m pip install --upgrade pip
           py -V:3.14 -m pip install playwright
           py -V:3.14 -m playwright install chromium
 
-      - name: Fetch supplier feed (headless browser)
+      - name: Fetch supplier feed
         shell: powershell
+        working-directory: ${{ github.workspace }}
         env:
           AUTOMEGA_FEED_URL: ${{ secrets.AUTOMEGA_FEED_URL }}
           AUTOMEGA_FEED_FILE: tmp/automega.xml
@@ -41,7 +45,7 @@ jobs:
 
           $head = (Get-Content $outFile -TotalCount 60) -join "`n"
           if ($head -notmatch "<SHOP") {
-            Write-Host "ERROR: Still not XML feed. First 500 chars:"
+            Write-Host "ERROR: Not XML feed. First 500 chars:"
             $preview = $head.Substring(0, [Math]::Min(500, $head.Length))
             Write-Host $preview
             throw "Downloaded file is not the expected XML feed."
@@ -49,6 +53,7 @@ jobs:
 
       - name: Update output + snapshot
         shell: powershell
+        working-directory: ${{ github.workspace }}
         env:
           AUTOMEGA_FEED_FILE: tmp/automega.xml
         run: |
@@ -56,13 +61,21 @@ jobs:
 
       - name: Commit changes (if any)
         shell: powershell
+        working-directory: ${{ github.workspace }}
         run: |
+          # Fix "dubious ownership" on self-hosted runner
+          git config --global --add safe.directory "${{ github.workspace }}"
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add feeds/automega.xml data/automega_snapshot.json
 
-          $diff = git diff --cached --name-only
-          if ([string]::IsNullOrWhiteSpace($diff)) { Write-Host "No changes"; exit 0 }
+          $status = git status --porcelain
+          if ([string]::IsNullOrWhiteSpace($status)) {
+            Write-Host "No changes"
+            exit 0
+          }
 
           git commit -m "Update Automega feed"
           git push
