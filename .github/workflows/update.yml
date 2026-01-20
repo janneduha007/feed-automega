@@ -51,13 +51,13 @@ jobs:
           Write-Host ("Downloaded {0} bytes" -f (Get-Item $outFile).Length)
 
           # --- Validate that it's actually the feed (should contain <SHOP> near the start) ---
-$head = (Get-Content $outFile -TotalCount 30) -join "`n"
-if ($head -notmatch "<SHOP") {
-  Write-Host "ERROR: Downloaded content does not look like the XML feed. First 500 chars:"
-  $preview = $head.Substring(0, [Math]::Min(500, $head.Length))
-  Write-Host $preview
-  throw "Downloaded file is not the expected XML feed (likely HTML/403 page)."
-}
+          $head = (Get-Content $outFile -TotalCount 30) -join "`n"
+          if ($head -notmatch "<SHOP") {
+            Write-Host "ERROR: Downloaded content does not look like the XML feed. First 500 chars:"
+            $preview = $head.Substring(0, [Math]::Min(500, $head.Length))
+            Write-Host $preview
+            throw "Downloaded file is not the expected XML feed (likely HTML/403 page)."
+          }
 
           # Print a few lines for sanity
           Get-Content $outFile -TotalCount 8 | ForEach-Object { Write-Host $_ }
