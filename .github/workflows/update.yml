@@ -3,7 +3,7 @@ name: Update Automega feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"  # každou hodinu v :15 (UTC)
+    - cron: "15 * * * *"
 
 permissions:
   contents: write
@@ -11,82 +11,47 @@ permissions:
 jobs:
   build:
     runs-on: self-hosted
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch supplier feed (curl)
+      - name: Ensure temp dir
         shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path tmp | Out-Null
 
-          $url = "${{ secrets.AUTOMEGA_FEED_URL }}"
+      - name: Install Playwright (once per runner)
+        shell: powershell
+        run: |
+          py -V:3.14 -m pip install --upgrade pip
+          py -V:3.14 -m pip install playwright
+          py -V:3.14 -m playwright install chromium
+
+      - name: Fetch supplier feed (headless browser)
+        shell: powershell
+        env:
+          AUTOMEGA_FEED_URL: ${{ secrets.AUTOMEGA_FEED_URL }}
+          AUTOMEGA_FEED_FILE: tmp/automega.xml
+        run: |
+          py -V:3.14 tools/fetch_automega_feed.py
+
           $outFile = "tmp/automega.xml"
-
-          # Browser-like headers
-          $ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-
-          $ok = $false
-          for ($i = 1; $i -le 3; $i++) {
-            Write-Host "Download attempt $i..."
-
-            # Use curl.exe (Windows built-in)
-            # -L follow redirects
-            # --fail makes non-2xx exit nonzero
-            # -sS silent but show errors
-            curl.exe -L --fail -sS `
-              -A "$ua" `
-              -H "Accept: application/xml,text/xml,*/*;q=0.8" `
-              -H "Accept-Language: cs-CZ,cs;q=0.9,en;q=0.8" `
-              -H "Referer: http://www.automega.cz/" `
-              "$url" -o "$outFile"
-
-            if ((Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) {
-              $ok = $true
-              break
-            }
-
-            Start-Sleep -Seconds 10
-          }
-
-          if (-not $ok) { throw "Download failed after 3 attempts." }
-
           $size = (Get-Item $outFile).Length
           Write-Host ("Downloaded {0} bytes" -f $size)
 
-          # Validate: should contain <SHOP> near the start
           $head = (Get-Content $outFile -TotalCount 60) -join "`n"
           if ($head -notmatch "<SHOP") {
-            Write-Host "ERROR: Downloaded content does not look like the XML feed. First 500 chars:"
+            Write-Host "ERROR: Still not XML feed. First 500 chars:"
             $preview = $head.Substring(0, [Math]::Min(500, $head.Length))
             Write-Host $preview
-
-            # Extra diagnostics: try HEAD request to see content-type/status
-            try {
-              $r = Invoke-WebRequest -Method Head -Uri $url -Headers @{ "User-Agent" = $ua } -TimeoutSec 60
-              Write-Host ("HEAD Status: {0}" -f $r.StatusCode)
-              Write-Host ("HEAD Content-Type: {0}" -f $r.Headers["Content-Type"])
-            } catch {
-              Write-Host ("HEAD request failed: {0}" -f $_.Exception.Message)
-            }
-
-            throw "Downloaded file is not the expected XML feed (likely HTML page / access denied)."
+            throw "Downloaded file is not the expected XML feed."
           }
-
-          # Print a few lines for sanity
-          Get-Content $outFile -TotalCount 8 | ForEach-Object { Write-Host $_ }
 
       - name: Update output + snapshot
         shell: powershell
         env:
           AUTOMEGA_FEED_FILE: tmp/automega.xml
         run: |
-          if (-not (Get-Command py -ErrorAction SilentlyContinue)) {
-            throw "py launcher not found. Install Python launcher or ensure it is available."
-          }
-
-          # Use the runtime we know exists on this machine
           py -V:3.14 tools/update_automega_feed.py
 
       - name: Commit changes (if any)
@@ -94,14 +59,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add feeds/automega.xml data/automega_snapshot.json
 
           $diff = git diff --cached --name-only
-          if ([string]::IsNullOrWhiteSpace($diff)) {
-            Write-Host "No changes to commit."
-            exit 0
-          }
+          if ([string]::IsNullOrWhiteSpace($diff)) { Write-Host "No changes"; exit 0 }
 
           git commit -m "Update Automega feed"
           git push
