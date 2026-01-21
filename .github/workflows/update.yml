@@ -67,7 +67,7 @@ jobs:
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_TO: "tomas.sedivy@carvin.cz"
+          MAIL_TO: "tomas.sedivy@carvin.cz,e-shop@carvin.cz"
           MAIL_FROM: ${{ secrets.SMTP_USER }}
           SUBJECT_PREFIX: "Automega feed změny"
           CHANGES_JSON: "data/automega_changes.json"
