@@ -1,9 +1,7 @@
 {
-  "timestamp_utc": "2026-01-21T10:48:15.729580+00:00",
+  "timestamp_utc": "2026-01-21T11:35:01.613175+00:00",
   "new_count": 0,
-  "missing_count": 1,
+  "missing_count": 0,
   "new_codes": [],
-  "missing_codes": [
-    "311-p3"
-  ]
+  "missing_codes": []
 }
