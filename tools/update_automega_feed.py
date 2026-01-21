@@ -136,21 +136,18 @@ def _supplier_amount(item: ET.Element):
 
 def normalize_item_for_output(item: ET.Element, force_out_of_stock: bool = False) -> ET.Element:
     """
-    - odstraní nepovolené tagy: PRODUCT_VISIBILITY
-    - pokud je dodavatel vyprodaný (AMOUNT<=0) nebo force_out_of_stock=True:
-        -> vynutí AMOUNT=0 + AVAILABILITY_OUT_OF_STOCK="Odesíláme do 3-5 dnů"
+    Varianta 2: VŽDY vynutit náš režim:
+    - odstranit PRODUCT_VISIBILITY
+    - vynutit AMOUNT=0
+    - vynutit AVAILABILITY_OUT_OF_STOCK="Odesíláme do 3-5 dnů"
+    - odstranit dodavatelské AVAILABILITY
     """
-    # odstranit PRODUCT_VISIBILITY (Shoptet ho odmítá)
     pv = item.find("PRODUCT_VISIBILITY")
     if pv is not None:
         item.remove(pv)
 
-    amt = _supplier_amount(item)
-    is_out = force_out_of_stock or (amt is not None and amt <= 0)
-
-    if is_out:
-        _set_stock_zero(item)
-        _set_out_of_stock_availability(item, OUT_OF_STOCK_TEXT)
+    _set_stock_zero(item)
+    _set_out_of_stock_availability(item, OUT_OF_STOCK_TEXT)
 
     return item
 
