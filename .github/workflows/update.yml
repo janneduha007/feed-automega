@@ -51,13 +51,29 @@ jobs:
             throw "Downloaded file is not the expected XML feed."
           }
 
-      - name: Update output + snapshot
+      - name: Update output + snapshot + changes
         shell: powershell
         working-directory: ${{ github.workspace }}
         env:
           AUTOMEGA_FEED_FILE: tmp/automega.xml
         run: |
           py -V:3.14 tools/update_automega_feed.py
+
+      - name: Send email if changes
+        shell: powershell
+        working-directory: ${{ github.workspace }}
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: "tomas.sedivy@carvin.cz"
+          MAIL_FROM: ${{ secrets.SMTP_USER }}
+          SUBJECT_PREFIX: "Automega feed změny"
+          CHANGES_JSON: "data/automega_changes.json"
+          CHANGES_MD: "data/automega_changes.md"
+        run: |
+          py -V:3.14 tools/send_email_smtp.py
 
       - name: Commit changes (if any)
         shell: powershell
@@ -69,7 +85,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add feeds/automega.xml data/automega_snapshot.json
+          git add feeds/automega.xml data/automega_snapshot.json data/automega_changes.json data/automega_changes.md
 
           $status = git status --porcelain
           if ([string]::IsNullOrWhiteSpace($status)) {
