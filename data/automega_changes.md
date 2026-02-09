@@ -1,9 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-02-09T21:53:36.766079+00:00
+- Čas (UTC): 2026-02-09T22:56:25.726851+00:00
 
-## Nové produkty (2)
-- 666-p3
-- 666-p3STONIC
+## Nové produkty (0)
+- (žádné)
 
 ## Zmizelé produkty (0)
 - (žádné)
