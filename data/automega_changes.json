@@ -1,10 +1,7 @@
 {
-  "timestamp_utc": "2026-02-10T09:10:31.116160+00:00",
+  "timestamp_utc": "2026-02-10T10:10:06.116815+00:00",
   "new_count": 0,
-  "missing_count": 2,
+  "missing_count": 0,
   "new_codes": [],
-  "missing_codes": [
-    "73103",
-    "73103TRAFIC"
-  ]
+  "missing_codes": []
 }
