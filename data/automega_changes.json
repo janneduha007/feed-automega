@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-02-11T23:46:05.702870+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-02-12T03:19:40.502867+00:00",
+  "new_count": 3,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "31420-T09SPORTAGE",
+    "33646-T06SPORTAGE",
+    "33691-T09SPORTAGE"
+  ],
   "missing_codes": []
 }
