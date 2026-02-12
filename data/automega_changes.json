@@ -1,11 +1,14 @@
 {
-  "timestamp_utc": "2026-02-12T13:43:00.934596+00:00",
-  "new_count": 1,
-  "missing_count": 1,
+  "timestamp_utc": "2026-02-12T15:04:55.302817+00:00",
+  "new_count": 3,
+  "missing_count": 2,
   "new_codes": [
-    "36975-T06"
+    "31420-T01",
+    "33646-T06",
+    "36739-T06"
   ],
   "missing_codes": [
-    "36975-T01"
+    "31420-T09",
+    "33646-T09"
   ]
 }
