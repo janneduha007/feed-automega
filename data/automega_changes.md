@@ -1,11 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-02-12T15:04:55.302817+00:00
+- Čas (UTC): 2026-02-12T16:06:15.159744+00:00
 
-## Nové produkty (3)
-- 31420-T01
-- 33646-T06
-- 36739-T06
+## Nové produkty (0)
+- (žádné)
 
-## Zmizelé produkty (2)
-- 31420-T09
-- 33646-T09
+## Zmizelé produkty (0)
+- (žádné)
