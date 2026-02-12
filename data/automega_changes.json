@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-02-12T11:53:21.512932+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-02-12T13:43:00.934596+00:00",
+  "new_count": 1,
+  "missing_count": 1,
+  "new_codes": [
+    "36975-T06"
+  ],
+  "missing_codes": [
+    "36975-T01"
+  ]
 }
