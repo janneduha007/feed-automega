@@ -1,8 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-02-16T21:42:21.783481+00:00
+- Čas (UTC): 2026-02-16T22:47:54.451299+00:00
 
 ## Nové produkty (0)
 - (žádné)
 
-## Zmizelé produkty (1)
-- 573-SEDE
+## Zmizelé produkty (0)
+- (žádné)
