@@ -1,7 +1,16 @@
 {
-  "timestamp_utc": "2026-02-17T21:47:40.104075+00:00",
+  "timestamp_utc": "2026-02-17T22:50:15.344376+00:00",
   "new_count": 0,
-  "missing_count": 0,
+  "missing_count": 8,
   "new_codes": [],
-  "missing_codes": []
+  "missing_codes": [
+    "27708",
+    "37-p3LT",
+    "37-p3boxer",
+    "37-p3ducatoI",
+    "37-p3jumper",
+    "37-p3master",
+    "37-p3movano",
+    "37-p3sprinter"
+  ]
 }
