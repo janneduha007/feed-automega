@@ -1,7 +1,17 @@
 {
-  "timestamp_utc": "2026-02-26T09:03:40.967986+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-02-26T10:04:36.987060+00:00",
+  "new_count": 3,
+  "missing_count": 5,
+  "new_codes": [
+    "38-p3boxer",
+    "38-p3ducatoII",
+    "38-p3jumperII"
+  ],
+  "missing_codes": [
+    "119-p3",
+    "119-p4",
+    "201-p1",
+    "51-p4",
+    "STYLUS-p1"
+  ]
 }
