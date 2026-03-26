@@ -1,17 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-03-26T17:17:16.828770+00:00
+- Čas (UTC): 2026-03-26T19:23:12.426621+00:00
 
-## Nové produkty (8)
-- 36777-T09
-- 36777-T09INTERSTAR
-- 36999-T01
-- 36999-T01CROSS
-- 37002-T06CROSS
-- 37019-T09
-- 37019-T09CROSS
-- 85563
+## Nové produkty (0)
+- (žádné)
 
-## Zmizelé produkty (3)
-- 36999-T06
-- 37019-T06
-- 9zelene
+## Zmizelé produkty (0)
+- (žádné)

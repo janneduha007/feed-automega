@@ -1,20 +1,7 @@
 {
-  "timestamp_utc": "2026-03-26T17:17:16.828770+00:00",
-  "new_count": 8,
-  "missing_count": 3,
-  "new_codes": [
-    "36777-T09",
-    "36777-T09INTERSTAR",
-    "36999-T01",
-    "36999-T01CROSS",
-    "37002-T06CROSS",
-    "37019-T09",
-    "37019-T09CROSS",
-    "85563"
-  ],
-  "missing_codes": [
-    "36999-T06",
-    "37019-T06",
-    "9zelene"
-  ]
+  "timestamp_utc": "2026-03-26T19:23:12.426621+00:00",
+  "new_count": 0,
+  "missing_count": 0,
+  "new_codes": [],
+  "missing_codes": []
 }
