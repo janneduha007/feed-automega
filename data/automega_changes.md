@@ -1,15 +1,15 @@
 # Automega feed změny
-- Čas (UTC): 2026-04-27T09:28:37.591405+00:00
+- Čas (UTC): 2026-04-27T11:58:46.955826+00:00
 
-## Nové produkty (0)
-- (žádné)
+## Nové produkty (6)
+- 38-p3boxer
+- 38-p3ducatoII
+- 38-p3jumperII
+- 58-p1-alhambra
+- 58-p1-galaxy
+- 58-p1-sharan
 
-## Zmizelé produkty (8)
-- 31-p4
-- 335boxer
-- 335ducato
-- 335jumper
-- 335lt
-- 335master
-- 335movano
-- 335sprinter
+## Zmizelé produkty (3)
+- 739-p2
+- 747-p1
+- 770-p1
