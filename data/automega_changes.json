@@ -1,14 +1,7 @@
 {
-  "timestamp_utc": "2026-05-06T23:05:02.136865+00:00",
+  "timestamp_utc": "2026-05-07T00:01:28.111773+00:00",
   "new_count": 0,
-  "missing_count": 6,
+  "missing_count": 0,
   "new_codes": [],
-  "missing_codes": [
-    "309-p1",
-    "309-p1Mii",
-    "309-p1citigo",
-    "449-p3ibiza",
-    "650-p3trafic",
-    "650-p3vivaro"
-  ]
+  "missing_codes": []
 }
