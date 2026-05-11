@@ -1,15 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-05-11T16:10:43.277968+00:00
+- Čas (UTC): 2026-05-11T18:02:42.346824+00:00
 
-## Nové produkty (8)
-- 434-PR-1OCTAVIA-I-R10
-- 434-PR-1OCTAVIA-I-R80LO
-- 434-PR-1OCTAVIA-I-TOUR
-- 434-PR-2OCTAVIA-I-R10
-- 434-PR-2OCTAVIA-I-R80LO
-- 434-PR-2OCTAVIA-I-TOUR
-- 497-PR-1RAPID
-- 497-PR-2RAPID
+## Nové produkty (0)
+- (žádné)
 
 ## Zmizelé produkty (0)
 - (žádné)

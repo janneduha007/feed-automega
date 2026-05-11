@@ -1,16 +1,7 @@
 {
-  "timestamp_utc": "2026-05-11T16:10:43.277968+00:00",
-  "new_count": 8,
+  "timestamp_utc": "2026-05-11T18:02:42.346824+00:00",
+  "new_count": 0,
   "missing_count": 0,
-  "new_codes": [
-    "434-PR-1OCTAVIA-I-R10",
-    "434-PR-1OCTAVIA-I-R80LO",
-    "434-PR-1OCTAVIA-I-TOUR",
-    "434-PR-2OCTAVIA-I-R10",
-    "434-PR-2OCTAVIA-I-R80LO",
-    "434-PR-2OCTAVIA-I-TOUR",
-    "497-PR-1RAPID",
-    "497-PR-2RAPID"
-  ],
+  "new_codes": [],
   "missing_codes": []
 }
