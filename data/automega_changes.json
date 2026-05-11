@@ -1,16 +1,16 @@
 {
-  "timestamp_utc": "2026-05-11T12:20:46.675986+00:00",
+  "timestamp_utc": "2026-05-11T16:10:43.277968+00:00",
   "new_count": 8,
   "missing_count": 0,
   "new_codes": [
-    "431-PR-1FABIAI-4op",
-    "431-PR-1FABIAI-5op",
-    "431-PR-1FABIAII-5op",
-    "431-PR-2FABIAI-4op",
-    "431-PR-2FABIAI-5op",
-    "431-PR-2FABIAII-5op",
-    "434-PR-1OCTAVIA-I-R80",
-    "434-PR-2OCTAVIA-I-R80"
+    "434-PR-1OCTAVIA-I-R10",
+    "434-PR-1OCTAVIA-I-R80LO",
+    "434-PR-1OCTAVIA-I-TOUR",
+    "434-PR-2OCTAVIA-I-R10",
+    "434-PR-2OCTAVIA-I-R80LO",
+    "434-PR-2OCTAVIA-I-TOUR",
+    "497-PR-1RAPID",
+    "497-PR-2RAPID"
   ],
   "missing_codes": []
 }
