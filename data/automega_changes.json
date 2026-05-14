@@ -1,7 +1,20 @@
 {
-  "timestamp_utc": "2026-05-14T06:52:17.457144+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-05-14T09:39:40.909586+00:00",
+  "new_count": 4,
+  "missing_count": 7,
+  "new_codes": [
+    "52-p3",
+    "573-SEDE",
+    "594-p1",
+    "754-p4"
+  ],
+  "missing_codes": [
+    "108-p2",
+    "195-p4",
+    "211-p3",
+    "285-p1",
+    "350-p2",
+    "432-p3",
+    "649-p4"
+  ]
 }
