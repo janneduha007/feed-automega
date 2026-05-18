@@ -1,52 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-05-18T16:32:32.075362+00:00
+- Čas (UTC): 2026-05-18T19:01:28.447018+00:00
 
-## Nové produkty (6)
-- 123a-p3
-- 123a-p3Bora
-- 230-p1sharanII
-- 311-p4
-- 714-MODRE
-- 744-p4
+## Nové produkty (0)
+- (žádné)
 
-## Zmizelé produkty (40)
-- 1010-p1
-- 119-p3
-- 122-p1
-- 123b-p1
-- 123b-p1jetta
-- 126-p3
-- 127-p3
-- 206-p3
-- 208-p1
-- 208-p2
-- 209-p1
-- 209-p4
-- 232-p2
-- 232-p2jetta
-- 236-p3
-- 236-p3toledoIII
-- 242-p1alhambraII
-- 311-p1
-- 311-p3
-- 351-p4
-- 388-p2
-- 507-p1
-- 58-p2-alhambra
-- 58-p2-galaxy
-- 58-p2-sharan
-- 591-p1
-- 591-p3
-- 622-p3
-- 622-p4
-- 647-p4
-- 663-p2
-- 727-p4
-- 743-p2
-- 744-p2
-- 744-p3
-- 769-p1
-- 769-p4
-- 834-p4
-- 855-p3
-- 855-p4
+## Zmizelé produkty (0)
+- (žádné)
