@@ -1,7 +1,21 @@
 {
-  "timestamp_utc": "2026-05-18T08:51:23.989694+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-05-18T12:46:44.709807+00:00",
+  "new_count": 2,
+  "missing_count": 10,
+  "new_codes": [
+    "10687",
+    "597-p2"
+  ],
+  "missing_codes": [
+    "122-p3",
+    "159-p3",
+    "27698",
+    "317-p1galaxy",
+    "345",
+    "49-p4",
+    "597-p4",
+    "742-p2",
+    "874-p1",
+    "97-p4"
+  ]
 }
