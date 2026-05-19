@@ -1,7 +1,15 @@
 {
-  "timestamp_utc": "2026-05-19T19:16:03.052928+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-05-19T21:43:04.746611+00:00",
+  "new_count": 1,
+  "missing_count": 5,
+  "new_codes": [
+    "597-p4"
+  ],
+  "missing_codes": [
+    "118-p4",
+    "236-p1",
+    "236-p1toledoIII",
+    "597-p2",
+    "647-p2"
+  ]
 }
