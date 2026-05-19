@@ -1,7 +1,9 @@
 {
-  "timestamp_utc": "2026-05-19T12:19:02.249692+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-05-19T16:30:36.268179+00:00",
+  "new_count": 1,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "33653-T09"
+  ],
   "missing_codes": []
 }
