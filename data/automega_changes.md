@@ -1,8 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-05-19T16:30:36.268179+00:00
+- Čas (UTC): 2026-05-19T19:16:03.052928+00:00
 
-## Nové produkty (1)
-- 33653-T09
+## Nové produkty (0)
+- (žádné)
 
 ## Zmizelé produkty (0)
 - (žádné)
