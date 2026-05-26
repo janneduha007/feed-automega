@@ -1,8 +1,9 @@
 # Automega feed změny
-- Čas (UTC): 2026-05-26T19:26:56.021444+00:00
+- Čas (UTC): 2026-05-26T21:57:01.428525+00:00
 
-## Nové produkty (0)
-- (žádné)
+## Nové produkty (1)
+- 747-p4
 
-## Zmizelé produkty (0)
-- (žádné)
+## Zmizelé produkty (2)
+- 339-p3
+- 862-p3
