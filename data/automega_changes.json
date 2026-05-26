@@ -1,12 +1,7 @@
 {
-  "timestamp_utc": "2026-05-26T21:57:01.428525+00:00",
-  "new_count": 1,
-  "missing_count": 2,
-  "new_codes": [
-    "747-p4"
-  ],
-  "missing_codes": [
-    "339-p3",
-    "862-p3"
-  ]
+  "timestamp_utc": "2026-05-26T23:21:23.124970+00:00",
+  "new_count": 0,
+  "missing_count": 0,
+  "new_codes": [],
+  "missing_codes": []
 }
