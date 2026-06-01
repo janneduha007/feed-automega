@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-06-01T10:31:00.563062+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-06-01T16:45:55.181921+00:00",
+  "new_count": 1,
+  "missing_count": 1,
+  "new_codes": [
+    "1018-p1"
+  ],
+  "missing_codes": [
+    "321-p2"
+  ]
 }
