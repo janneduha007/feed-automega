@@ -1,13 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-06-03T17:12:42.115170+00:00
+- Čas (UTC): 2026-06-03T20:26:28.542806+00:00
 
-## Nové produkty (3)
-- 165-p4BOXER
-- 165-p4DUCATO
-- 165-p4JUMPER
+## Nové produkty (0)
+- (žádné)
 
-## Zmizelé produkty (4)
-- 125-p2
-- 165-p1BOXER
-- 165-p1DUCATO
-- 165-p1JUMPER
+## Zmizelé produkty (0)
+- (žádné)
