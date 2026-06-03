@@ -1,14 +1,16 @@
 {
-  "timestamp_utc": "2026-06-03T12:06:00.828266+00:00",
-  "new_count": 0,
-  "missing_count": 6,
-  "new_codes": [],
+  "timestamp_utc": "2026-06-03T17:12:42.115170+00:00",
+  "new_count": 3,
+  "missing_count": 4,
+  "new_codes": [
+    "165-p4BOXER",
+    "165-p4DUCATO",
+    "165-p4JUMPER"
+  ],
   "missing_codes": [
-    "123a-p2",
-    "123a-p2Bora",
-    "136-p3",
-    "641-p3",
-    "821-p1",
-    "93-p2"
+    "125-p2",
+    "165-p1BOXER",
+    "165-p1DUCATO",
+    "165-p1JUMPER"
   ]
 }
