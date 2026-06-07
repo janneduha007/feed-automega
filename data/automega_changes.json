@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-06-07T20:22:48.618534+00:00",
+  "timestamp_utc": "2026-06-07T22:16:18.358791+00:00",
   "new_count": 0,
-  "missing_count": 0,
+  "missing_count": 3,
   "new_codes": [],
-  "missing_codes": []
+  "missing_codes": [
+    "85a-p3trafic3m",
+    "85a-p3vivaro3m",
+    "9cerne"
+  ]
 }
