@@ -1,10 +1,7 @@
 {
-  "timestamp_utc": "2026-06-08T16:16:09.874949+00:00",
+  "timestamp_utc": "2026-06-08T19:34:34.827002+00:00",
   "new_count": 0,
-  "missing_count": 2,
+  "missing_count": 0,
   "new_codes": [],
-  "missing_codes": [
-    "726-P3",
-    "864-p3"
-  ]
+  "missing_codes": []
 }
