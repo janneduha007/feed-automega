@@ -1,8 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-06-18T11:16:37.621575+00:00
+- Čas (UTC): 2026-06-18T15:50:42.470696+00:00
 
-## Nové produkty (0)
+## Nové produkty (1)
+- 1036-p3
+
+## Zmizelé produkty (0)
 - (žádné)
-
-## Zmizelé produkty (1)
-- 32-p3partner
