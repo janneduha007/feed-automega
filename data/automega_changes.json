@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-07-07T07:52:02.050659+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-07-07T11:18:03.672379+00:00",
+  "new_count": 3,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "10685",
+    "793BLACK",
+    "793MASTERBLACK"
+  ],
   "missing_codes": []
 }
