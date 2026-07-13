@@ -1,7 +1,12 @@
 {
-  "timestamp_utc": "2026-07-13T11:26:44.727737+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-07-13T15:08:25.144982+00:00",
+  "new_count": 2,
+  "missing_count": 1,
+  "new_codes": [
+    "317-p1galaxy",
+    "71-p3"
+  ],
+  "missing_codes": [
+    "277-p1"
+  ]
 }
