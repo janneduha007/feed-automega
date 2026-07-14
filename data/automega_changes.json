@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-07-14T12:21:53.879798+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-07-14T15:00:57.318645+00:00",
+  "new_count": 1,
+  "missing_count": 1,
+  "new_codes": [
+    "31123-T12"
+  ],
+  "missing_codes": [
+    "573-SEDE"
+  ]
 }
