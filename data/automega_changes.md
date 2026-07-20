@@ -1,8 +1,8 @@
 # Automega feed změny
-- Čas (UTC): 2026-07-20T11:11:06.593523+00:00
+- Čas (UTC): 2026-07-20T13:15:40.095404+00:00
 
-## Nové produkty (1)
-- 36012STYLE
+## Nové produkty (0)
+- (žádné)
 
-## Zmizelé produkty (1)
-- 36021STYLE
+## Zmizelé produkty (0)
+- (žádné)
