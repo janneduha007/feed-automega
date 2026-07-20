@@ -1,7 +1,11 @@
 {
-  "timestamp_utc": "2026-07-20T07:25:41.971265+00:00",
-  "new_count": 0,
-  "missing_count": 0,
-  "new_codes": [],
-  "missing_codes": []
+  "timestamp_utc": "2026-07-20T11:11:06.593523+00:00",
+  "new_count": 1,
+  "missing_count": 1,
+  "new_codes": [
+    "36012STYLE"
+  ],
+  "missing_codes": [
+    "36021STYLE"
+  ]
 }
