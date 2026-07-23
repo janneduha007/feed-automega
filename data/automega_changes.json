@@ -1,7 +1,9 @@
 {
-  "timestamp_utc": "2026-07-23T22:12:36.436158+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-07-23T23:09:59.586293+00:00",
+  "new_count": 1,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "448-p4PROLIS"
+  ],
   "missing_codes": []
 }
