@@ -1,8 +1,9 @@
 # Automega feed změny
-- Čas (UTC): 2026-07-29T06:42:35.180509+00:00
+- Čas (UTC): 2026-07-29T09:47:15.902848+00:00
 
-## Nové produkty (0)
-- (žádné)
+## Nové produkty (2)
+- 85826
+- 85827
 
 ## Zmizelé produkty (0)
 - (žádné)
