@@ -1,7 +1,14 @@
 {
-  "timestamp_utc": "2026-08-11T06:01:50.373065+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-08-11T07:32:36.520946+00:00",
+  "new_count": 6,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "335boxer",
+    "335ducato",
+    "335jumper",
+    "335lt",
+    "339-p1",
+    "339-p3"
+  ],
   "missing_codes": []
 }
