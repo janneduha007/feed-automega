@@ -1,7 +1,9 @@
 {
-  "timestamp_utc": "2026-10-22T04:35:59.001411+00:00",
-  "new_count": 0,
+  "timestamp_utc": "2026-10-22T10:06:53.975919+00:00",
+  "new_count": 1,
   "missing_count": 0,
-  "new_codes": [],
+  "new_codes": [
+    "74445"
+  ],
   "missing_codes": []
 }
